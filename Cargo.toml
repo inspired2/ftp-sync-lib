@@ -1,14 +1,12 @@
 [package]
 authors = ["Alexander Tchepournov"]
-name = "rust-ftp"
+name = "ftp-sync"
 version = "0.1.0"
 license = "MIT"
 edition = "2021"
 
 [lib]
-name = "ftp_sync"
-path = "src/lib.rs"
-version = "0.1.0"
+crate-type = ["cdylib"]
 
 [dependencies]
 tokio = { features = ["full"], version = "1.15.0" }

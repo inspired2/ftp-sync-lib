@@ -97,6 +97,7 @@ impl Order {
         self.folders.to_owned()
     }
     pub async fn is_ready_for_download(&self, conn: &mut MutexGuard<'_, Connection>) -> bool {
+        let ready_flag_file_ext = &conn.get_ready_flag().to_owned();
         if let Ok(entries) = conn.get_dir_entries(&self.get_root_path()).await {
             entries.iter().any(|ent| {
                 !ent.is_dir()
@@ -107,7 +108,7 @@ impl Order {
                         .take(3)
                         .collect::<String>()
                         .to_lowercase()
-                        == *"txt"
+                        == *ready_flag_file_ext
             })
         } else {
             false

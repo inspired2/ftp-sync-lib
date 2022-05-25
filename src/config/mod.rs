@@ -12,6 +12,7 @@ pub struct Config {
     pub pass: String,
     pub connections: usize,
     conn_healthcheck_rate_sec: u16,
+    pub ready_flag_file_ext: String
 }
 impl Config {
     //read config file in root dir

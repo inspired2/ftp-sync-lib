@@ -29,6 +29,9 @@ impl fmt::Debug for Connection {
     }
 }
 impl Connection {
+    pub fn get_ready_flag(&self) -> &str {
+        &self.config.ready_flag_file_ext
+    }
     pub async fn with_config(conf: &Config) -> Result<Self> {
         //connect
         //loop trying to connec

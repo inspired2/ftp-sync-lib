@@ -1,0 +1,11 @@
+{
+  "local_folder": "",
+  "dirs_to_watch": [""],
+  "host": "someftpserver.com",
+  "port": "21",
+  "user": "user",
+  "pass": "password",
+  "connections": 3,
+  "conn_healthcheck_rate_sec": 120,
+  "ready_flag_file_ext": "txt"
+}
