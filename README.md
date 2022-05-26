@@ -18,7 +18,7 @@ config file: config.json - must be in CWD
                                      // will  be found in this folder
 }
 
-# usage example
+## usage example
 
 use ftp_sync::{Config, Controller, Pool, Result, Watcher};
 use once_cell::sync::OnceCell;
