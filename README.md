@@ -40,7 +40,7 @@ async fn main() -> Result<()> {
     //create watcher passing ownership to the pool;
     let watcher: Watcher = Watcher::with_pool(pool).await?;
 
-    //using once_cell as we need watcher and controller to be static;
+    //using once_cell as we need watcher and controller to be static to be accessed from multiple threads;
     unsafe {
         WATCHER.set(watcher).expect("error setting up watcher");
     }
