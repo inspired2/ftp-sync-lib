@@ -1,6 +1,6 @@
 [package]
 authors = ["Alexander Tchepournov"]
-name = "ftp-sync"
+name = "ftp_sync"
 version = "0.1.0"
 license = "MIT"
 edition = "2021"
