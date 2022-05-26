@@ -19,7 +19,7 @@ config file: config.json - must be in CWD
 }
 
 ## usage example
-
+```
 use ftp_sync::{Config, Controller, Pool, Result, Watcher};
 use once_cell::sync::OnceCell;
 use std::env::current_dir;
@@ -73,3 +73,4 @@ async fn main() -> Result<()> {
     join!(controller, watcher);
     Ok(())
 }
+```
