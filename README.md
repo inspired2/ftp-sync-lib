@@ -3,7 +3,7 @@ rust lib that provide tools to sync remote ftp folder with local folder (one way
 
 # config 
 config file: config.json - must be in CWD
-
+```
 {
   "local_folder": "",  //folder where remote folders will be downloaded
   "dirs_to_watch": [""], //remote host root can contain multiple folders. Leave empty to sync all, or specify list of folders, 
@@ -17,8 +17,8 @@ config file: config.json - must be in CWD
   "ready_flag_file_ext": "extension" //folder will be considered finished being written to (and thus ready to be downloaded) when any "filename.extension" 
                                      // will  be found in this folder
 }
-
-## usage example
+```
+# usage example
 ```
 use ftp_sync::{Config, Controller, Pool, Result, Watcher};
 use once_cell::sync::OnceCell;
