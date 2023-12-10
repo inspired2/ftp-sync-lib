@@ -35,8 +35,10 @@ async fn main() -> Result<()> {
     let config_dir = current_dir().expect("could not get CWD");
     let config = Config::new(config_dir, CFG_FILENAME).await?;
     let healthcheck_interval = config.get_healthcheck_interval();
+
     //create pool of connections to ftp server;
     let pool: Pool = Pool::with_config(&config).await?;
+
     //create watcher passing ownership to the pool;
     let watcher: Watcher = Watcher::with_pool(pool).await?;
 
@@ -47,8 +49,8 @@ async fn main() -> Result<()> {
 
     //controller manage connections to ftp through arc;
     //we must take ref to the pool from watcher as it owns the arc to the running pool;
-    let pool_arc = unsafe { WATCHER.get_mut().unwrap().get_pool_ref() };
-    let controller = Controller::new(pool_arc);
+    let pool_ref = unsafe { WATCHER.get_mut().unwrap().get_pool_ref() };
+    let controller = Controller::new(pool_ref);
     unsafe {
         //set controller to once_cell;
         CONTROLLER
